@@ -1,3 +1,16 @@
+# PomPoko
+
+A Pomodoro timer app that allows you to collect Pokemon while you study. 
+
+## References
+
+The RESTful Pokémon API https://pokeapi.co/
+
+https://www.youtube.com/watch?v=vt4IrEfjzWQ
+
+
+# NextJS Documentation
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
