@@ -7,49 +7,38 @@ interface TimerComponentProp {
     time: number;
 }
 
-interface State{
-    time: number; 
-    minutes: number;
-    seconds: number;
-}
-
 const TimerComponent = ({time}:TimerComponentProp) => {
     const [totalTime, setTotalTime] = useState(time)
-    const [minutes, setMinutes] = useState(Math.floor((time)/60))
-    const [seconds, setSeconds] = useState(time - Math.floor((time)/60) * 60)
 
-    const [state, setState] = useState<State>({
-        time,
-        minutes: Math.floor((time)/60),
-        seconds: time - Math.floor((time)/60) * 60,
-    });
+    const [timerState, setTimerState] = useState<Boolean>(false); //false = pause, true = start
 
     const [timeInterval, setTimeInterval] = useState<number>(0)
 
     const startTimer = () =>{
         console.log("starting countdown")
-        setTimeInterval(
-            window.setInterval(()=>{
-                if (time === 0){
-                    return;
-                }
-                // setState({
-                //     time: time - 1,
-                //     minutes: Math.floor((time-1)/60),
-                //     seconds: state.time - Math.floor((time-1)/60) * 60 - 1
-                // }); 
-                setTotalTime((prev) => prev - 1)
-            }, 1000)
-        );
-    }
+        if (timerState == false){
+            setTimerState(true)
+            setTimeInterval(
+                window.setInterval(()=>{
+                    if (time === 0){
+                        return;
+                    }
+                    setTotalTime((prev) => prev - 1)
+                }, 1000)
+            );
+        }}
 
     const pauseTimer = () => {
         console.log("paused")
         clearInterval(timeInterval)
+        setTimerState(false)
     }
 
-
-
+    const resetTimer = () => {
+        console.log("reset timer")
+        setTimerState(false)
+        setTotalTime(time)
+    }
 
     const getMinutes = () => {
         return (Math.floor((totalTime-1)/60));
@@ -63,12 +52,12 @@ const TimerComponent = ({time}:TimerComponentProp) => {
         return x
     }
 
-
     return (
         <div className="timer">
             <h2>{`${getMinutes()}:${getSeconds()}`}</h2>
             <button className="startButton" onClick={startTimer}> start </button>
             <button className="pauseButton" onClick={pauseTimer}> pause </button>
+            <button className="pauseButton" onClick={resetTimer}> reset </button>
         </div>
     );
 };
