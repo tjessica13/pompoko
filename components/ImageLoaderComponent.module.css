@@ -1,0 +1,17 @@
+.canvas {
+    height: 400px;
+    width: auto;
+    image-rendering: optimizeSpeed;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimize-contrast;
+    -ms-interpolation-mode: nearest-neighbor;
+    image-rendering: pixelated;
+    border: 'solid 1px black';
+    margin-left: 100px;
+}
+  
+.view {
+    text-align: center;
+}
