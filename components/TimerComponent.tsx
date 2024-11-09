@@ -52,10 +52,9 @@ const TimerComponent = ({time}:TimerComponentProp) => {
             // we count 1 completed pomodoro
             hatchCounter = hatchCounter + 1;
             console.log("add hatch count");
+            clearInterval(timeInterval);
             // reset the timer
             resetTimer();
-            // stop the timer from counting down again
-            pauseTimer();
         }
         return minutes;
     }
