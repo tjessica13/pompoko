@@ -7,8 +7,12 @@ interface TimerComponentProp {
     time: number;
 }
 
+// hatch counter to count how many times the timer has reached 0
+// how many pomodoros have been completed
+let hatchCounter = 0;
+
 const TimerComponent = ({time}:TimerComponentProp) => {
-    const [totalTime, setTotalTime] = useState(time)
+    const [totalTime, setTotalTime] = useState(time);
 
     const [timerState, setTimerState] = useState<Boolean>(false); //false = pause, true = start
 
@@ -26,7 +30,8 @@ const TimerComponent = ({time}:TimerComponentProp) => {
                     setTotalTime((prev) => prev - 1)
                 }, 1000)
             );
-        }}
+        }
+    }
 
     const pauseTimer = () => {
         console.log("paused")
@@ -35,18 +40,28 @@ const TimerComponent = ({time}:TimerComponentProp) => {
     }
 
     const resetTimer = () => {
-        console.log("reset timer")
-        setTimerState(false)
-        setTotalTime(time)
+        console.log("reset timer");
+        clearInterval(timeInterval);
+        setTimerState(false);
+        setTotalTime(time);
     }
 
     const getMinutes = () => {
-        return (Math.floor((totalTime-1)/60));
+        let minutes = (Math.floor((totalTime-1)/60));
+        // when the timer reaches 0:00
+        if (minutes == 0 && getSeconds() == 0) {
+            // we count 1 completed pomodoro
+            hatchCounter = hatchCounter + 1;
+            console.log("add hatch count");
+            // reset the timer
+            resetTimer();
+        }
+        return minutes;
     }
 
     const getSeconds = () => {
         const x = totalTime - Math.floor((totalTime-1)/60) * 60 - 1
-        if (x <= 10){
+        if (x < 10){
             return ('0' + x);
         }
         return x
@@ -58,6 +73,7 @@ const TimerComponent = ({time}:TimerComponentProp) => {
             <button className="startButton" onClick={startTimer}> start </button>
             <button className="pauseButton" onClick={pauseTimer}> pause </button>
             <button className="pauseButton" onClick={resetTimer}> reset </button>
+            <h1>{hatchCounter}</h1>
         </div>
     );
 };
