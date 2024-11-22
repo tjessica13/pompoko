@@ -1,22 +1,31 @@
 "use client";
 
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
+import { useRouter } from 'next/navigation';
+import ImageLoaderComponent from "@/components/ImageLoaderComponent";
 
 interface TimerComponentProp {
     // amount of time in seconds
     time: number;
+    pokemonUrl: string;
 }
 
 // hatch counter to count how many times the timer has reached 0
 // how many pomodoros have been completed
 let hatchCounter = 0;
 
-const TimerComponent = ({time}:TimerComponentProp) => {
+//path for which image to load
+let imgSource = '/images/egg_png.png';
+
+
+const TimerComponent = ({time, pokemonUrl}:TimerComponentProp) => {
     const [totalTime, setTotalTime] = useState(time);
 
     const [timerState, setTimerState] = useState<Boolean>(false); //false = pause, true = start
 
     const [timeInterval, setTimeInterval] = useState<number>(0)
+
+    const router = useRouter();
 
     const startTimer = () =>{
         console.log("starting countdown")
@@ -52,6 +61,12 @@ const TimerComponent = ({time}:TimerComponentProp) => {
         if (minutes == 0 && getSeconds() == 0) {
             // we count 1 completed pomodoro
             hatchCounter = hatchCounter + 1;
+            if (hatchCounter == 2){
+                hatchCounter = 0;
+                imgSource = pokemonUrl;
+                router.push('/hatch-egg');
+            }
+
             console.log("add hatch count");
             // reset the timer
             resetTimer();
@@ -74,6 +89,7 @@ const TimerComponent = ({time}:TimerComponentProp) => {
             <button className="pauseButton" onClick={pauseTimer}> pause </button>
             <button className="pauseButton" onClick={resetTimer}> reset </button>
             <h1>{hatchCounter}</h1>
+            <ImageLoaderComponent link= {imgSource}/>
         </div>
     );
 };
