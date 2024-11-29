@@ -2,6 +2,7 @@ import Link from "next/link";
 import TimerComponent from "@/components/TimerComponent";
 import Pokemon from "@/components/Pokemon";
 import { getPokemonList } from "@/lib/pokemonAPI";
+import Image from 'next/image'
 
 export default async function Home() {
 
@@ -18,9 +19,10 @@ export default async function Home() {
 
   return (
     <main>
-      <div>
+        <div className="navbar">
+          <Image alt="pompoko logo" src="/images/LOGO2.png" width={250} height={100}></Image>
+        </div>
         <TimerComponent time={5} pokemonUrl={pokemon}/>
-      </div>
     </main>
   );
 }

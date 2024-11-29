@@ -4,6 +4,7 @@
 
 :root {
   --background-color: 124, 140, 187;
+  --navbar-color: #BFC7DE;
   --timer-color: 132, 134, 130;
   --start-color: #EC3739;
   --pause-color: #E49A28;
@@ -19,8 +20,14 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 50px;
-  padding: 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  background-color: var(--navbar-color);
+  width: 100%;
+  padding: 10px;
 }
 
 h2 {
