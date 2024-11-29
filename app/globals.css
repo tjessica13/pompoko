@@ -3,27 +3,74 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --background-color: 124, 140, 187;
+  --timer-color: 132, 134, 130;
+  --start-color: #EC3739;
+  --pause-color: #E49A28;
+  --reset-color: #2994CD;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: rgb(var(--background-color));
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+  padding: 20px;
+}
+
+h2 {
+  font-size: 120px;
+  text-align: center;
+}
+
+button {
+  border-radius: 30px;
+  background-color: white;
+  color: black;
+  margin: 16px;
+  padding: 20px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  color: white;
+}
+
+.startButton {
+  background-color: var(--start-color);
+}
+
+.pauseButton {
+  background-color: var(--pause-color);
+}
+
+.resetButton {
+  background-color: var(--reset-color);
+}
+
+.pokemon-image {
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+}
+
+.timer {
+  color: rgb(var(--timer-color));
+  background-color: white;
+  border: solid;
+  border-width: 6px;
+  border-color: rgb(222, 222, 222);
+  border-radius: 35px;
+  margin: 20px;
 }
 
 @layer utilities {

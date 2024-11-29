@@ -83,13 +83,16 @@ const TimerComponent = ({time, pokemonUrl}:TimerComponentProp) => {
     }
 
     return (
-        <div className="timer">
-            <h2>{`${getMinutes()}:${getSeconds()}`}</h2>
-            <button className="startButton" onClick={startTimer}> start </button>
-            <button className="pauseButton" onClick={pauseTimer}> pause </button>
-            <button className="pauseButton" onClick={resetTimer}> reset </button>
-            <h1>{hatchCounter}</h1>
-            <ImageLoaderComponent link= {imgSource}/>
+        <div className="timer-component">
+            <div className="pokemon-image">
+                <ImageLoaderComponent link= {imgSource}/>
+            </div>
+            <h2 className="timer">{`${getMinutes()}:${getSeconds()}`}</h2>
+            <div className="button-group">
+                <button className="pauseButton" onClick={pauseTimer}> pause </button>
+                <button className="startButton" onClick={startTimer}> start </button>
+                <button className="resetButton" onClick={resetTimer}> reset </button>
+            </div>
         </div>
     );
 };

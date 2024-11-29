@@ -17,12 +17,10 @@ export default async function Home() {
   console.log(pokemon)
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Pokemon pokemon={pokemon}/>
+    <main>
       <div>
         <TimerComponent time={5} pokemonUrl={pokemon}/>
       </div>
-      <Link href = "/hatch-egg"> hatchegg </Link>
     </main>
   );
 }
