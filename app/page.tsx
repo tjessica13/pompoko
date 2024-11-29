@@ -1,8 +1,7 @@
-import Image from "next/image";
+import Link from "next/link";
 import TimerComponent from "@/components/TimerComponent";
 import Pokemon from "@/components/Pokemon";
 import { getPokemonList } from "@/lib/pokemonAPI";
-import ImageLoaderComponent from "@/components/ImageLoaderComponent";
 
 export default async function Home() {
 
@@ -21,10 +20,9 @@ export default async function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <Pokemon pokemon={pokemon}/>
       <div>
-        <TimerComponent time={5} />
+        <TimerComponent time={5} pokemonUrl={pokemon}/>
       </div>
-      <ImageLoaderComponent link= {"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/132.gif"}/>
-
+      <Link href = "/hatch-egg"> hatchegg </Link>
     </main>
   );
 }
