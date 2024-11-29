@@ -3,6 +3,7 @@
 import React, {useState} from "react";
 import { useRouter } from 'next/navigation';
 import ImageLoaderComponent from "@/components/ImageLoaderComponent";
+import Image from 'next/image'
 
 interface TimerComponentProp {
     // amount of time in seconds
@@ -84,8 +85,13 @@ const TimerComponent = ({time, pokemonUrl}:TimerComponentProp) => {
 
     return (
         <div className="timer-component">
-            <div className="pokemon-image">
-                <ImageLoaderComponent link= {imgSource}/>
+            <div className="pokemon-element">
+                <div className="egg-image">
+                    <ImageLoaderComponent link= {imgSource}/>
+                </div>
+                <div className="egg-base">
+                    <Image alt="pokemon base" src="/images/Group 6.png" width={450} height={100}></Image>
+                </div>
             </div>
             <h2 className="timer">{`${getMinutes()}:${getSeconds()}`}</h2>
             <div className="button-group">
