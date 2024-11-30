@@ -30,9 +30,32 @@ main {
   padding: 10px;
 }
 
+.hatch-egg {
+  height: 500px;
+  max-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 100px;
+}
+
+h1, p {
+  color: white;
+  text-align: center;
+} 
+
+h1 {
+  font-size: 80px;
+}
+
 h2 {
   font-size: 120px;
   text-align: center;
+}
+
+p {
+  font-size: 26px;
 }
 
 button {
