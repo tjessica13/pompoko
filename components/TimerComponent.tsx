@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import ImageLoaderComponent from "@/components/ImageLoaderComponent";
 import Image from 'next/image'
 
+import { FiPlay, FiPause, FiStopCircle } from "react-icons/fi";
+
 interface TimerComponentProp {
     // amount of time in seconds
     time: number;
@@ -95,9 +97,9 @@ const TimerComponent = ({time, pokemonUrl}:TimerComponentProp) => {
             </div>
             <h2 className="timer">{`${getMinutes()}:${getSeconds()}`}</h2>
             <div className="button-group">
-                <button className="pauseButton" onClick={pauseTimer}> pause </button>
-                <button className="startButton" onClick={startTimer}> start </button>
-                <button className="resetButton" onClick={resetTimer}> reset </button>
+                <button className="pauseButton" onClick={pauseTimer}><FiPause fontSize={40}/></button>
+                <button className="startButton" onClick={startTimer}><FiPlay fontSize={40}/></button>
+                <button className="resetButton" onClick={resetTimer}><FiStopCircle fontSize={40}/></button>
             </div>
         </div>
     );
