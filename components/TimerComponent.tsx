@@ -3,7 +3,9 @@
 import React, {useState} from "react";
 import { useRouter } from 'next/navigation';
 import ImageLoaderComponent from "@/components/ImageLoaderComponent";
-import Image from 'next/image'
+import Image from 'next/image';
+
+import { Jersey_10 } from 'next/font/google';
 
 import { FiPlay, FiPause, FiStopCircle } from "react-icons/fi";
 
@@ -20,6 +22,10 @@ let hatchCounter = 0;
 //path for which image to load
 let imgSource = '/images/egg_png.png';
 
+const jersey = Jersey_10({ 
+    weight: ['400'],
+    subsets: ['latin']
+});
 
 const TimerComponent = ({time, pokemonUrl}:TimerComponentProp) => {
     const [totalTime, setTotalTime] = useState(time);
@@ -95,7 +101,9 @@ const TimerComponent = ({time, pokemonUrl}:TimerComponentProp) => {
                     <Image alt="pokemon base" src="/images/Group 6.png" width={450} height={100}></Image>
                 </div>
             </div>
-            <h2 className="timer">{`${getMinutes()}:${getSeconds()}`}</h2>
+            <div className="timer">
+                <h2 className={jersey.className}>{`${getMinutes()}:${getSeconds()}`}</h2>
+            </div>
             <div className="button-group">
                 <button className="pauseButton" onClick={pauseTimer}><FiPause fontSize={40}/></button>
                 <button className="startButton" onClick={startTimer}><FiPlay fontSize={40}/></button>

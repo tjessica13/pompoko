@@ -50,7 +50,7 @@ h1 {
 }
 
 h2 {
-  font-size: 120px;
+  font-size: 130px;
   text-align: center;
 }
 
@@ -69,6 +69,7 @@ button {
 .button-group {
   display: flex;
   justify-content: center;
+  margin: 10px;
 }
 
 button {
@@ -113,13 +114,19 @@ button {
   border-width: 6px;
   border-color: rgb(222, 222, 222);
   border-radius: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 130px;
+  width: auto;
+  margin: 20px;
 }
 
 footer {
   display: flex;
   justify-content: end;
   width: 100%;
-  padding: 25px;
+  padding: 30px;
 }
 
 @layer utilities {
