@@ -4,6 +4,8 @@ import Pokemon from "@/components/Pokemon";
 import { getPokemonList } from "@/lib/pokemonAPI";
 import Image from 'next/image'
 
+import { FiGithub } from "react-icons/fi";
+
 export default async function Home() {
 
   // https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
@@ -20,9 +22,14 @@ export default async function Home() {
   return (
     <main>
         <div className="navbar">
-          <Image alt="pompoko logo" src="/images/LOGO2.png" width={250} height={100}></Image>
+          <Image alt="pompoko logo" src="/images/LOGO2.png" width={150} height={100}></Image>
         </div>
         <TimerComponent time={5} pokemonUrl={pokemon}/>
+        <footer>
+          <a href="https://github.com/tjessica13/pompoko" target="_blank" rel="noopener noreferrer">
+            <FiGithub fontSize={40} color="white"/>
+          </a>
+        </footer>
     </main>
   );
 }
