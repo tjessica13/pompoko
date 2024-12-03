@@ -43,7 +43,7 @@ main {
 h1, p {
   color: white;
   text-align: center;
-} 
+}
 
 h1 {
   font-size: 80px;
@@ -60,20 +60,15 @@ p {
 
 button {
   border-radius: 30px;
-  background-color: white;
-  color: black;
   margin: 14px;
   padding: 16px;
+  color: white;
 }
 
 .button-group {
   display: flex;
   justify-content: center;
   margin: 10px;
-}
-
-button {
-  color: white;
 }
 
 .startButton {
@@ -93,7 +88,7 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 110px;
+  margin-top: 150px;
 }
 
 .egg-image {
