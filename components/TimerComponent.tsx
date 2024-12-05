@@ -72,8 +72,8 @@ const TimerComponent = ({time, pokemonUrl}:TimerComponentProp) => {
             hatchCounter = hatchCounter + 1;
             if (hatchCounter == 2){
                 hatchCounter = 0;
-                imgSource = pokemonUrl;
                 router.push('/hatch-egg');
+                imgSource = pokemonUrl;
             }
 
             console.log("add hatch count");
