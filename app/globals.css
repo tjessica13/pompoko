@@ -3,27 +3,130 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --background-color: 124, 140, 187;
+  --navbar-color: #BFC7DE;
+  --timer-color: 132, 134, 130;
+  --start-color: #EC3739;
+  --pause-color: #E49A28;
+  --reset-color: #2994CD;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: rgb(var(--background-color));
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  background-color: var(--navbar-color);
+  width: 100%;
+  padding: 10px;
+}
+
+.hatch-egg {
+  height: 500px;
+  max-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 100px;
+}
+
+h1, p {
+  color: white;
+  text-align: center;
+}
+
+h1 {
+  font-size: 80px;
+}
+
+h2 {
+  font-size: 130px;
+  text-align: center;
+}
+
+p {
+  font-size: 26px;
+}
+
+button {
+  border-radius: 30px;
+  margin: 14px;
+  padding: 16px;
+  color: white;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.startButton {
+  background-color: var(--start-color);
+}
+
+.pauseButton {
+  background-color: var(--pause-color);
+}
+
+.resetButton {
+  background-color: var(--reset-color);
+}
+
+.pokemon-element {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 150px;
+}
+
+.egg-image {
+  z-index: 2;
+  top: 10px;
+}
+
+.egg-base {
+  position: relative;
+  z-index: 1;
+  top: -50px;
+}
+
+.timer {
+  color: rgb(var(--timer-color));
+  background-color: white;
+  border: solid;
+  border-width: 6px;
+  border-color: rgb(222, 222, 222);
+  border-radius: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 130px;
+  width: auto;
+  margin: 20px;
+}
+
+.timer h2 {
+  letter-spacing: 16px;
+  padding-left: 20px;
+}
+
+footer {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  padding: 30px;
 }
 
 @layer utilities {

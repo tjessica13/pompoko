@@ -2,6 +2,9 @@ import Link from "next/link";
 import TimerComponent from "@/components/TimerComponent";
 import Pokemon from "@/components/Pokemon";
 import { getPokemonList } from "@/lib/pokemonAPI";
+import Image from 'next/image'
+
+import { FiGithub } from "react-icons/fi";
 
 export default async function Home() {
 
@@ -17,12 +20,16 @@ export default async function Home() {
   console.log(pokemon)
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Pokemon pokemon={pokemon}/>
-      <div>
+    <main>
+        <div className="navbar">
+          <Image alt="pompoko logo" src="/images/LOGO2.png" width={150} height={100}></Image>
+        </div>
         <TimerComponent time={5} pokemonUrl={pokemon}/>
-      </div>
-      <Link href = "/hatch-egg"> hatchegg </Link>
+        <footer>
+          <a href="https://github.com/tjessica13/pompoko" target="_blank" rel="noopener noreferrer">
+            <FiGithub fontSize={40} color="white"/>
+          </a>
+        </footer>
     </main>
   );
 }

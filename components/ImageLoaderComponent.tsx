@@ -39,9 +39,7 @@ const ImageLoaderComponent = ({link}:ImageLoaderProp) => {
      */
     return (
         <div className={styles.view}>
-
-            <h2>Original: </h2>
-            <Image ref={imgRef} className={styles.canvas} src={link} width={96} height={96} alt="cat picture" unoptimized={true} priority/> 
+            <Image ref={imgRef} className={styles.canvas} src={link} width={96} height={96} alt="pokemon pixel image" unoptimized={true} priority/> 
         </div>
     );
 };
