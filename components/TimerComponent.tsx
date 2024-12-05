@@ -21,6 +21,8 @@ let hatchCounter = 0;
 
 //path for which image to load
 let imgSource = '/images/egg_png.png';
+let progressBarIconFull = '/images/progress_bar.png';
+let progressBarIconEmpty = '/images/progress_bar_empty.png';
 
 const jersey = Jersey_10({ 
     weight: ['400'],
@@ -70,10 +72,11 @@ const TimerComponent = ({time, pokemonUrl}:TimerComponentProp) => {
         if (minutes == 0 && getSeconds() == 0) {
             // we count 1 completed pomodoro
             hatchCounter = hatchCounter + 1;
-            if (hatchCounter == 2){
+            incrementProgress(hatchCounter.toString());
+            if (hatchCounter == 6){
                 hatchCounter = 0;
                 router.push('/hatch-egg');
-                imgSource = pokemonUrl;
+                setTimeout(function() { imgSource = pokemonUrl }, 1000);
             }
 
             console.log("add hatch count");
@@ -89,6 +92,13 @@ const TimerComponent = ({time, pokemonUrl}:TimerComponentProp) => {
             return ('0' + x);
         }
         return x
+    }
+
+    const incrementProgress = (divID: string) => {
+        const currDiv = document.getElementById(divID) as HTMLImageElement;
+        if (currDiv != null){
+            currDiv.setAttribute("src", progressBarIconFull);
+        }
     }
 
     return (
@@ -108,6 +118,14 @@ const TimerComponent = ({time, pokemonUrl}:TimerComponentProp) => {
                 <button className="pauseButton" onClick={pauseTimer}><FiPause fontSize={40}/></button>
                 <button className="startButton" onClick={startTimer}><FiPlay fontSize={40}/></button>
                 <button className="resetButton" onClick={resetTimer}><FiStopCircle fontSize={40}/></button>
+            </div>
+            <div className="progress bar" style = {{display: "flex"}}>
+                <img id = "1" src = {progressBarIconEmpty} width={"40px"}></img>
+                <img id = "2" src = {progressBarIconEmpty} width={"40px"}></img>
+                <img id = "3" src = {progressBarIconEmpty} width={"40px"}></img>
+                <img id = "4" src = {progressBarIconEmpty} width={"40px"}></img>
+                <img id = "5" src = {progressBarIconEmpty} width={"40px"}></img>
+                <img id = "6" src = {progressBarIconEmpty} width={"40px"}></img>
             </div>
         </div>
     );
