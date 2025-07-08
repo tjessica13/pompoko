@@ -2,6 +2,9 @@
 
 A Pomodoro timer app that allows you to collect Pokemon while you study. 
 
+![image](https://github.com/user-attachments/assets/3ba71801-a2da-4004-a778-283078adf919)
+![image](https://github.com/user-attachments/assets/533adb8d-24af-4637-9ba8-4678a2d06ed3)
+
 ## References
 
 The RESTful Pokémon API https://pokeapi.co/
