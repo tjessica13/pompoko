@@ -2,15 +2,14 @@
 
 A Pomodoro timer app that allows you to collect Pokemon while you study. 
 
-![image](https://github.com/user-attachments/assets/3ba71801-a2da-4004-a778-283078adf919)
-![image](https://github.com/user-attachments/assets/533adb8d-24af-4637-9ba8-4678a2d06ed3)
+![image](https://github.com/user-attachments/assets/343904f2-667c-4585-8173-dcdc69928a22)
+![image](https://github.com/user-attachments/assets/837e0e5e-8f79-4459-95f8-0b9d6eda5854)
+![image](https://github.com/user-attachments/assets/09135ffd-3dc2-4fe3-ab03-daf25d3e5d52)
+![image](https://github.com/user-attachments/assets/7cbc7e06-8ac6-461b-aa2c-4d3dc66f71ac)
 
 ## References
 
 The RESTful Pokémon API https://pokeapi.co/
-
-https://www.youtube.com/watch?v=vt4IrEfjzWQ
-
 
 # NextJS Documentation
 
